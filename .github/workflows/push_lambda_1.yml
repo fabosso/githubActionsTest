@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - './lambda_1/**'
 jobs:
   deploy_lambda:
     runs-on: ubuntu-latest
@@ -21,6 +23,4 @@ jobs:
       - name: deploy
         run: |
           zip -r lambda_1.zip ./lambda_1/*
-          zip -r lambda_2.zip ./lambda_2/*
           aws lambda update-function-code --function-name=lambda1 --zip-file=fileb://lambda_1.zip
-          aws lambda update-function-code --function-name=lambda1 --zip-file=fileb://lambda_2.zip
