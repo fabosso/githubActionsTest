@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "./lambda_1/**"
+      - "./lambda_2/**"
 jobs:
   deploy_lambda:
     runs-on: ubuntu-latest
@@ -22,5 +22,8 @@ jobs:
           aws-region: us-east-1
       - name: deploy
         run: |
-          zip -r lambda_1.zip ./lambda_1/*
-          aws lambda update-function-code --function-name=lambda_1 --zip-file=fileb://lambda_1.zip
+          echo "Updating $LAMBDA_NAME"
+          zip -r $LAMBDA_NAME.zip ./$LAMBDA_NAME/*
+          aws lambda update-function-code --function-name=$LAMBDA_NAME --zip-file=fileb://$LAMBDA_NAME.zip
+        env:
+          LAMBDA_NAME: lambda_2
