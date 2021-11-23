@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "./lambda_1/**"
+      - "lambda_1/**"
 jobs:
   deploy_lambda:
     runs-on: ubuntu-latest
