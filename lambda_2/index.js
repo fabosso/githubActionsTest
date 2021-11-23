@@ -1,5 +1,5 @@
 exports.handler = async (event) => {
-  console.log("Changed pushed to lambda 2 from repo!");
+  console.log("Changed pushed to lambda 2 from repo!!");
   // TODO implement
   const response = {
     statusCode: 200,
