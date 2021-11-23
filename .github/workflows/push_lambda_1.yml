@@ -2,12 +2,13 @@ name: Deploy
 
 env:
   LAMBDA_NAME: lambda_1
+
 on:
   push:
     branches:
       - main
     paths:
-      - "$LAMBDA_NAME/**"
+      - "lambda_1/**"
 jobs:
   deploy_lambda:
     runs-on: ubuntu-latest
